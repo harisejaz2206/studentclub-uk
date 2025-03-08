@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .student-discount-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200;
+  }
+  
+  .category-card {
+    @apply relative overflow-hidden bg-white dark:bg-gray-800 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 dark:shadow-gray-900/30;
+  }
+  
+  .category-card::before {
+    @apply content-[''] absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-navy-600 to-red-600;
+  }
+}
