@@ -23,18 +23,18 @@ A comprehensive web application designed to help international students navigate
 - Public transport information
 - Banking and mobile network setup guides
 
-## 🚀 Getting Started
+## 🚀 Development Setup
 
 ### Prerequisites
 - Node.js (v14 or higher)
 - npm or yarn
-- Git
+- Access to the private repository
 
 ### Installation
 
-1. Clone the repository
+1. Clone the repository (requires authorization)
 ```bash
-git clone https://github.com/harisejaz2206/uk-student-guide.git
+git clone [private-repository-url]
 cd uk-student-guide
 ```
 
@@ -114,30 +114,13 @@ The application is fully responsive across:
 - Desktop computers
 - Large screens
 
-## 🤝 Contributing
+## 📞 Support & Contact
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE.md file for details
-
-## 🙏 Acknowledgments
-
-- OpenStreetMap for location data
-- NHS for healthcare information
-- UK universities for student resources
-- Open source community for tools and libraries
-
-## 📞 Support
-
-For support, please email [burhan.sq4906@gmail.com] and [harisejaz2206@gmail.com] or open an issue in the repository.
+For technical support or inquiries, please contact:
+- Burhan: [burhan.sq4906@gmail.com]
+- Haris: [harisejaz2206@gmail.com]
 
 ---
 
-Made with ❤️ for international students in the UK
+© 2024 UK Student Guide. All rights reserved.
 
