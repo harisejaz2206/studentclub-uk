@@ -9,7 +9,13 @@ import {
   FileText,
   Landmark,
   Phone,
-  Heart
+  Heart,
+  MapPin,
+  Store,
+  Coffee,
+  Building2,
+  Pill,
+  AlertCircle
 } from 'lucide-react';
 import CategoryCard from '../components/CategoryCard';
 import '../styles/background-patterns.css'; // Import the background pattern CSS
@@ -50,15 +56,70 @@ const categories = [
     icon: Home,
     path: '/housing',
     color: 'navy' as const // Type assertion to ensure correct type
+  },
+  {
+    title: 'Healthcare',
+    description: 'Learn about NHS registration, emergency services, and accessing medical care as an international student.',
+    icon: Heart,
+    path: '/healthcare',
+    color: 'red' as const
   }
 ];
 
-// Resource items with icons
+// Resource items with icons and paths
 const resourceItems = [
-  { title: 'Student Visa Guide', icon: FileText },
-  { title: 'UK Banking Basics', icon: Landmark },
-  { title: 'SIM Card Comparison', icon: Phone },
-  { title: 'NHS Registration', icon: Heart }
+  { 
+    title: 'Student Visa Guide', 
+    icon: FileText,
+    path: '/visa-guide'
+  },
+  { 
+    title: 'UK Banking Basics', 
+    icon: Landmark,
+    path: '/banking'
+  },
+  { 
+    title: 'SIM Card Comparison', 
+    icon: Phone,
+    path: '/mobile'
+  },
+  { 
+    title: 'NHS Registration', 
+    icon: Heart,
+    path: '/healthcare'
+  }
+];
+
+// Add this new constant after your existing constants
+const nearbyServices = [
+  {
+    title: 'Find Pharmacies',
+    description: 'Locate nearby pharmacies and check opening hours',
+    icon: Pill,
+    path: '/nearby/pharmacies',
+    color: 'green'
+  },
+  {
+    title: 'Grocery Stores',
+    description: 'Discover supermarkets and local stores in your area',
+    icon: Store,
+    path: '/nearby/groceries',
+    color: 'blue'
+  },
+  {
+    title: 'Hospitals & Clinics',
+    description: 'Find NHS hospitals and medical facilities',
+    icon: Building2,
+    path: '/nearby/hospitals',
+    color: 'red'
+  },
+  {
+    title: 'Cafes & Study Spots',
+    description: 'Popular cafes and quiet places to study',
+    icon: Coffee,
+    path: '/nearby/cafes',
+    color: 'amber'
+  }
 ];
 
 function HomePage() {
@@ -139,16 +200,87 @@ function HomePage() {
             {resourceItems.map((item) => (
               <div
                 key={item.title}
-                className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm hover:shadow-md transition-all cursor-pointer border border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 transform hover:-translate-y-0.5"
+                onClick={() => navigate(item.path)}
+                className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm hover:shadow-md transition-all cursor-pointer border border-gray-100 dark:border-gray-700 hover:border-navy-200 dark:hover:border-navy-800/30 transform hover:-translate-y-0.5 group"
               >
                 <div className="flex items-center">
-                  <div className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 mr-3">
-                    <item.icon className="h-4 w-4 text-gray-600 dark:text-gray-300" />
+                  <div className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 mr-3 group-hover:bg-navy-50 dark:group-hover:bg-navy-900/30 transition-colors">
+                    <item.icon className="h-4 w-4 text-gray-600 dark:text-gray-300 group-hover:text-navy-600 dark:group-hover:text-navy-400" />
                   </div>
-                  <p className="font-medium text-gray-900 dark:text-white">{item.title}</p>
+                  <p className="font-medium text-gray-900 dark:text-white group-hover:text-navy-600 dark:group-hover:text-navy-400 transition-colors">
+                    {item.title}
+                  </p>
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Nearby Services Section */}
+        <div className="mb-16 mt-10">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+              Find Nearby Services
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Discover essential services around your location
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {nearbyServices.map((service) => (
+              <div
+                key={service.title}
+                onClick={() => navigate(service.path)}
+                className="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm hover:shadow-md transition-all border border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 transform hover:-translate-y-1 cursor-pointer"
+              >
+                <div className={`
+                  w-12 h-12 rounded-lg mb-4 flex items-center justify-center
+                  ${service.color === 'green' ? 'bg-green-50 dark:bg-green-900/20' : ''}
+                  ${service.color === 'blue' ? 'bg-blue-50 dark:bg-blue-900/20' : ''}
+                  ${service.color === 'red' ? 'bg-red-50 dark:bg-red-900/20' : ''}
+                  ${service.color === 'amber' ? 'bg-amber-50 dark:bg-amber-900/20' : ''}
+                `}>
+                  <service.icon className={`
+                    h-6 w-6
+                    ${service.color === 'green' ? 'text-green-500 dark:text-green-400' : ''}
+                    ${service.color === 'blue' ? 'text-blue-500 dark:text-blue-400' : ''}
+                    ${service.color === 'red' ? 'text-red-500 dark:text-red-400' : ''}
+                    ${service.color === 'amber' ? 'text-amber-500 dark:text-amber-400' : ''}
+                  `} />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-navy-600 dark:group-hover:text-navy-400">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">
+                  {service.description}
+                </p>
+                <div className="mt-4 flex items-center text-sm text-navy-600 dark:text-navy-400">
+                  <MapPin className="h-4 w-4 mr-1" />
+                  <span>View locations</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Quick Tips */}
+          <div className="mt-8 bg-gray-50 dark:bg-gray-800/50 rounded-xl p-6 border border-gray-100 dark:border-gray-700">
+            <div className="flex items-start space-x-3">
+              <div className="flex-shrink-0">
+                <AlertCircle className="h-6 w-6 text-navy-500 dark:text-navy-400" />
+              </div>
+              <div>
+                <h4 className="font-medium text-gray-900 dark:text-white mb-2">
+                  Quick Tips
+                </h4>
+                <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                  <li>• Most pharmacies are open late and on weekends</li>
+                  <li>• Major supermarkets often have student discount programs</li>
+                  <li>• University areas usually have plenty of student-friendly cafes</li>
+                  <li>• Save important locations to your phone's map app for quick access</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 

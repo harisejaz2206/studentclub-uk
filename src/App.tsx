@@ -9,6 +9,12 @@ import GroceriesSection from './components/GroceriesSection';
 import MobileSection from './components/MobileSection';
 import HousingSection from './components/HousingSection';
 import FAQPage from './pages/FAQPage';
+import HealthcareSection from './components/HealthcareSection';
+import VisaGuideSection from './components/VisaGuideSection';
+import NearbyPharmacies from './components/NearbyPharmacies';
+import NearbyGroceries from './components/NearbyGroceries';
+import NearbyHospitals from './components/NearbyHospitals';
+import NearbyCafes from './components/NearbyCafes';
 
 function App() {
   return (
@@ -24,6 +30,12 @@ function App() {
             <Route path="/mobile" element={<MobileSection />} />
             <Route path="/housing" element={<HousingSection />} />
             <Route path="/faq" element={<FAQPage />} />
+            <Route path="/healthcare" element={<HealthcareSection />} />
+            <Route path="/visa-guide" element={<VisaGuideSection />} />
+            <Route path="/nearby/pharmacies" element={<NearbyPharmacies/>} />
+            <Route path="/nearby/groceries" element={<NearbyGroceries/>} />
+            <Route path="/nearby/hospitals" element={<NearbyHospitals/>} />
+            <Route path="/nearby/cafes" element={<NearbyCafes/>}/>
           </Routes>
           <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-12 mt-24">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
