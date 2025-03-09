@@ -63,4 +63,81 @@ yarn dev
 - **Axios** - API requests
 - **React Router** - Navigation and routing
 
-## 📁 Project Structure
+## 🔍 API Integration
+
+The application uses the Overpass API for location data:
+
+```typescript
+// Basic query structure
+https://overpass-api.de/api/interpreter?data=[query]
+
+// Example queries:
+- Pharmacies: node[amenity=pharmacy]
+- Grocery Stores: node[shop=supermarket]
+- Hospitals: node[amenity=hospital]
+- Cafes: node[amenity=cafe]
+```
+
+### API Optimization Features
+- City-level result caching
+- Request debouncing
+- Pagination for large datasets
+- Error handling and timeouts
+- Loading states
+
+## 🎨 Styling
+
+The project uses Tailwind CSS with a custom configuration:
+- Responsive design breakpoints
+- Dark mode support
+- Custom color scheme
+- Consistent spacing and typography
+
+## 🔐 Performance Considerations
+
+1. **API Optimization**
+   - Results caching
+   - Debounced searches
+   - Paginated results
+   - Request timeouts
+
+2. **UI Performance**
+   - Lazy loading of components
+   - Optimized re-renders
+   - Efficient state management
+
+## 📱 Responsive Design
+
+The application is fully responsive across:
+- Mobile devices
+- Tablets
+- Desktop computers
+- Large screens
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details
+
+## 🙏 Acknowledgments
+
+- OpenStreetMap for location data
+- NHS for healthcare information
+- UK universities for student resources
+- Open source community for tools and libraries
+
+## 📞 Support
+
+For support, please email [burhan.sq4906@gmail.com] and [harisejaz2206@gmail.com] or open an issue in the repository.
+
+---
+
+Made with ❤️ for international students in the UK
+
